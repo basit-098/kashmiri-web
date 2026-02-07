@@ -16,7 +16,7 @@ const breads = [
         description: "Soft, fluffy leavened bread with a golden crust. Perfect with morning chai.",
         price: 25,
         category: "tandoor",
-        image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/lavasa.jpg",
         badge: "Bestseller"
     },
     {
@@ -25,7 +25,7 @@ const breads = [
         description: "Round, thick bread with sesame seeds. The heart of Kashmiri breakfast.",
         price: 20,
         category: "tandoor",
-        image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/girda.jpg",
         badge: "Popular"
     },
     {
@@ -34,7 +34,7 @@ const breads = [
         description: "Flaky, layered bread with a crispy exterior. Ideal with Wazwan dishes.",
         price: 30,
         category: "tandoor",
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/kulcha.jpg",
         badge: null
     },
     {
@@ -43,7 +43,7 @@ const breads = [
         description: "Saffron-infused sweet bread with a rich, milky flavor. A royal treat.",
         price: 45,
         category: "sweet",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/sheermaal.jpg",
         badge: "Premium"
     },
     {
@@ -52,7 +52,7 @@ const breads = [
         description: "Thin, crispy layered bread with poppy seeds. Sweet and savory delight.",
         price: 35,
         category: "sweet",
-        image: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/bakirkhani.jpg",
         badge: null
     },
     {
@@ -61,7 +61,7 @@ const breads = [
         description: "Crispy fried bread, perfect for special occasions and celebrations.",
         price: 40,
         category: "crispy",
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80",
+        image: "images/telvoru.jpg",
         badge: "Festive"
     }
 ];
@@ -131,6 +131,11 @@ function initializeApp() {
     setupEventListeners();
     loadTheme();
     updateCartUI();
+    
+    // Initialize Feather icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
 }
 
 // ============================================
@@ -184,7 +189,10 @@ function renderBreadMenu() {
         </article>
     `).join('');
     
-    feather.replace();
+    // Re-initialize Feather icons after rendering
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
 }
 
 // Temporary quantity storage for menu items
